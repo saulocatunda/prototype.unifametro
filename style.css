@@ -13,7 +13,7 @@
   --text-gray1: #666666;
   --text-gray2: #454545;
   --text-white: #ffffff;
-  --bg-light-blue: #01767a;
+  --bg-light-blue: #3d7274;
   --bg-dark-blue: #265153;
   --bg-modal: rgba(164, 209, 118, 0.506);
   --bg-buttonX: rgba(230, 36, 36, 0.774);
@@ -34,6 +34,7 @@ header {
   opacity: 0;
   display: none;
 }
+
 
 img.logo.nav {
   width: 5rem;
@@ -76,10 +77,16 @@ main .modal {
   width: 90vw;
   height: 80vh;
   background-color: var(--bg-modal);
+  overflow: auto;
+  margin-top: 2rem;
 }
 
 main .content_modal {
   font-weight: 400;
+}
+
+main .appear {
+  display: grid;
 }
 
 .close {

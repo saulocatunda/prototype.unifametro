@@ -28,38 +28,45 @@
           alt="logo favi"
           class="logo nav"
         />
-        <a href="/" id="btnCA" onclick="modalAppear()">Cadastrar aluno</a>
-        <a href="/" id="btnDP" onclick="modalAppear()">Disciplinas</a>
-        <a href="/" id="btnNT" onclick="modalAppear()">Notas</a>
-        <a href="/" id="btnCF" onclick="modalAppear()">Configurações</a>
-        <a href="">Sair</a>
+        <a href="/" id="btnCA" onclick="modalAppear(event,modalCA)"
+          >Cadastrar aluno</a
+        >
+        <a href="/" id="btnDP" onclick="modalAppear(event,modalDP)"
+          >Disciplinas</a
+        >
+        <a href="/" id="btnNT" onclick="modalAppear(event,modalNT)">Notas</a>
+        <a href="/" id="btnCF" onclick="modalAppear(event,modalCF)"
+          >Configurações</a
+        >
+        <a href="/" id="btnExit" onclick="modalAppear(event,'')">Sair</a>
       </nav>
     </header>
+
     <main>
-      <div id="btnModalCA" class="modal">
+      <div id="btnModalCA" class="modal hide">
         <div class="content_modal">
-          <span class="close">x</span>
+          <span class="close" onclick="modalDisappear(modalCA)">x</span>
           <p>teste</p>
         </div>
       </div>
 
-      <div id="btnModalDP" class="modal">
+      <div id="btnModalDP" class="modal hide">
         <div class="content_modal">
-          <span class="close">x</span>
+          <span class="close" onclick="modalDisappear(modalDP)">x</span>
           <p>teste</p>
         </div>
       </div>
 
-      <div id="btnModalNT" class="modal">
+      <div id="btnModalNT" class="modal hide">
         <div class="content_modal">
-          <span class="close">x</span>
+          <span class="close" onclick="modalDisappear(modalNT)">x</span>
           <p>teste</p>
         </div>
       </div>
 
-      <div id="btnModalCF" class="modal">
+      <div id="btnModalCF" class="modal hide">
         <div class="content_modal">
-          <span class="close">x</span>
+          <span class="close" onclick="modalDisappear(modalCF)">x</span>
           <p>teste</p>
         </div>
       </div>
@@ -69,25 +76,21 @@
       const modalDP = document.querySelector('#btnModalDP')
       const modalNT = document.querySelector('#btnModalNT')
       const modalCF = document.querySelector('#btnModalCF')
-      const buttonClose = document.querySelector('.close')
+      const buttonCloses = document.querySelectorAll('.close')
 
-      function modalAppear() {
+      function modalAppear(event, modalName) {
         event.preventDefault()
-        modalCA.style.display = 'grid'
-        console.log(event);
+        modalName.classList.remove('hide')
+        modalName.classList.add('appear')
+        console.log(event)
       }
 
-      buttonClose.onclick = () => {
-        modalCA.style.display = 'none'
-        console.log('span-onclick');
+      function modalDisappear(modalName) {
+        modalName.classList.add('hide')
+        modalName.classList.remove('appear')
+        console.log('span-onclick')
       }
 
-      window.onclick = event => {
-        if(event.target == modalCA) {
-          modalCA.style.display = "none"
-          console.log('span-onclick');
-        }
-      }
     </script>
   </body>
 </html>
