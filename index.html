@@ -18,27 +18,33 @@
   <body>
     <header>
       <nav>
-        <img
-          src="assets/logo-responsivo.png"
-          alt="logo responsiva"
-          class="logo hide mobile"
-        />
-        <img
-          src="assets/apple-touch-icon-removebg-preview.png"
-          alt="logo favi"
-          class="logo nav"
-        />
-        <a href="/" id="btnCA" onclick="modalAppear(event,modalCA)"
-          >Cadastrar aluno</a
-        >
-        <a href="/" id="btnDP" onclick="modalAppear(event,modalDP)"
-          >Disciplinas</a
-        >
-        <a href="/" id="btnNT" onclick="modalAppear(event,modalNT)">Notas</a>
-        <a href="/" id="btnCF" onclick="modalAppear(event,modalCF)"
-          >Configurações</a
-        >
-        <a href="/" id="btnExit" onclick="modalAppear(event,'')">Sair</a>
+        <div class="logo nav">
+          <img
+            src="assets/logo-responsivo.png"
+            alt="logo responsiva"
+            class="logo hide mobile"
+          />
+          <img
+            src="assets/apple-touch-icon-removebg-preview.png"
+            alt="logo favi"
+            class="logo nav"
+          />
+        </div>
+        <div class="options">
+          <a href="/" class="btnNAV" onclick="modalAppear(event,modalCA)"
+            >Cadastrar aluno</a
+          >
+          <a href="/" class="btnNAV" onclick="modalAppear(event,modalDP)"
+            >Disciplinas</a
+          >
+          <a href="/" class="btnNAV" onclick="modalAppear(event,modalNT)"
+            >Notas</a
+          >
+          <a href="/" class="btnNAV" onclick="modalAppear(event,modalCF)"
+            >Configurações</a
+          >
+          <a href="login.html" id="btnExit">Sair</a>
+        </div>
       </nav>
     </header>
 
@@ -66,6 +72,14 @@
               <label for="andress">Endereço:</label>
               <input type="text" placeholder="Endereço completo" required />
             </div>
+            <div class="buttons">
+              <button type="submit" onclick="submitButton(modalCA)">
+                Gravar
+              </button>
+              <button type="reset" onclick="submitButton(modalCA)">
+                Cancelar
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -76,13 +90,16 @@
           <table>
             <thead>
               <tr>
-                <td colspan="4">Aluno: <span>Renato Marciel Garcia</span></td>
+                <td colspan="5">
+                  Aluno: <span>Renato Marciel Garcia.</span> Matrícula: 155846-1
+                </td>
               </tr>
               <tr>
                 <td>Disciplina</td>
                 <td>Código</td>
                 <td>Professor</td>
                 <td>Turno</td>
+                <td>Editar</td>
               </tr>
             </thead>
             <tbody>
@@ -91,30 +108,45 @@
                 <td>2568-8</td>
                 <td>Debora</td>
                 <td>Manhã</td>
+                <td>
+                  <img src="assets/edit-ico.svg" alt="Editar" id="editIco" />
+                </td>
               </tr>
               <tr>
                 <td>Design</td>
                 <td>2524-7</td>
                 <td>Jordana</td>
                 <td>Manhã</td>
+                <td>
+                  <img src="assets/edit-ico.svg" alt="Editar" id="editIco" />
+                </td>
               </tr>
               <tr>
                 <td>Redes</td>
                 <td>2521-2</td>
                 <td>Maxiel</td>
                 <td>Noite</td>
+                <td>
+                  <img src="assets/edit-ico.svg" alt="Editar" id="editIco" />
+                </td>
               </tr>
               <tr>
                 <td>Lógica Prog.</td>
                 <td>2523-5</td>
                 <td>Denise</td>
                 <td>Manhã</td>
+                <td>
+                  <img src="assets/edit-ico.svg" alt="Editar" id="editIco" />
+                </td>
               </tr>
               <tr>
                 <td>Matemática Lógica</td>
                 <td>2586-1</td>
                 <td>Daniel</td>
                 <td>Noite</td>
+                <td>
+                  <img src="assets/edit-ico.svg" alt="Editar" id="editIco" />
+                </td>
               </tr>
             </tbody>
           </table>
@@ -127,7 +159,9 @@
           <table>
             <thead>
               <tr>
-                <td colspan="5">Aluno: <span>Renato Marciel Garcia</span></td>
+                <td colspan="5">
+                  Aluno: <span>Renato Marciel Garcia.</span> Matrícula: 155846-1
+                </td>
               </tr>
               <tr>
                 <td>Disciplina</td>
@@ -181,7 +215,14 @@
       <div id="btnModalCF" class="modal hide">
         <span class="close" onclick="modalDisappear(modalCF)">x</span>
         <div class="content_modal">
-          <p>teste</p>
+          <div class="config">
+            <p>Dados dos Alunos</p>
+            <p>Disciplinas Disponíveis</p>
+            <p>Permissões do Usuário</p>
+            <p>Professores</p>
+            <p>E-mail e Notificações</p>
+            <p>Preferências do Aplicativo</p>
+          </div>
         </div>
       </div>
     </main>
@@ -190,19 +231,32 @@
       const modalDP = document.querySelector('#btnModalDP')
       const modalNT = document.querySelector('#btnModalNT')
       const modalCF = document.querySelector('#btnModalCF')
-      const buttonCloses = document.querySelectorAll('.close')
+      const html = document.querySelector('html')
 
+      var currentModal
       function modalAppear(event, modalName) {
         event.preventDefault()
         modalName.classList.remove('hide')
-        console.log(modalName)
-        console.log(event)
+        if (modalName !== currentModal && currentModal !== undefined) {
+          modalDisappear(currentModal)
+        }
+        currentModal = modalName
       }
 
       function modalDisappear(modalName) {
         modalName.classList.add('hide')
-        console.log('span-onclick')
       }
+
+      function submitButton(modalName) {
+        event.preventDefault()
+        modalDisappear(modalName)
+      }
+
+      html.addEventListener('click', function (event) {
+        if (event.target === html) {
+          modalDisappear(currentModal)
+        }
+      })
     </script>
   </body>
 </html>
