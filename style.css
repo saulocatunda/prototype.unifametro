@@ -71,11 +71,9 @@ main {
 /* Modal */
 main .modal {
   display: none;
-  padding: 2rem;
+  padding: 3rem;
   border-radius: 1rem;
   z-index: 1;
-  width: 90vw;
-  height: 80vh;
   background-color: var(--bg-modal);
   overflow: auto;
   margin-top: 2rem;

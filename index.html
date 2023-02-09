@@ -46,7 +46,24 @@
       <div id="btnModalCA" class="modal hide">
         <div class="content_modal">
           <span class="close" onclick="modalDisappear(modalCA)">x</span>
-          <p>teste</p>
+          <form action="">
+            <div class="matricula">
+              <label for="mat">Matrícula</label>
+              <input type="text" placeholder="Digite sua matrícula" required />
+            </div>
+            <div class="name">
+              <label for="name">Nome:</label>
+              <input type="text" placeholder="Nome Completo" required>
+            </div>
+            <div class="cpf">
+              <label for="cpf">CPF:</label>
+              <input type="text" placeholder="Digite seu CPF" required>
+            </div>
+            <div class="andress">
+              <label for="andress">Endereço:</label>
+              <input type="text" placeholder="Endereço completo" required>
+            </div>
+          </form>
         </div>
       </div>
 
@@ -90,7 +107,6 @@
         modalName.classList.remove('appear')
         console.log('span-onclick')
       }
-
     </script>
   </body>
 </html>
