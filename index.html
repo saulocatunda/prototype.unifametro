@@ -44,46 +44,143 @@
 
     <main>
       <div id="btnModalCA" class="modal hide">
+        <span class="close" onclick="modalDisappear(modalCA)">x</span>
         <div class="content_modal">
-          <span class="close" onclick="modalDisappear(modalCA)">x</span>
           <form action="">
-            <div class="matricula">
-              <label for="mat">Matrícula</label>
+            <div class="matricula labelInput">
+              <label for="mat">Matrícula:</label>
               <input type="text" placeholder="Digite sua matrícula" required />
             </div>
-            <div class="name">
+
+            <div class="name labelInput">
               <label for="name">Nome:</label>
-              <input type="text" placeholder="Nome Completo" required>
+              <input type="text" placeholder="Nome Completo" required />
             </div>
-            <div class="cpf">
+
+            <div class="cpf labelInput">
               <label for="cpf">CPF:</label>
-              <input type="text" placeholder="Digite seu CPF" required>
+              <input type="text" placeholder="Digite seu CPF" required />
             </div>
-            <div class="andress">
+
+            <div class="andress labelInput">
               <label for="andress">Endereço:</label>
-              <input type="text" placeholder="Endereço completo" required>
+              <input type="text" placeholder="Endereço completo" required />
             </div>
           </form>
         </div>
       </div>
 
       <div id="btnModalDP" class="modal hide">
+        <span class="close" onclick="modalDisappear(modalDP)">x</span>
         <div class="content_modal">
-          <span class="close" onclick="modalDisappear(modalDP)">x</span>
-          <p>teste</p>
+          <table>
+            <thead>
+              <tr>
+                <td colspan="4">Aluno: <span>Renato Marciel Garcia</span></td>
+              </tr>
+              <tr>
+                <td>Disciplina</td>
+                <td>Código</td>
+                <td>Professor</td>
+                <td>Turno</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Gestão TI</td>
+                <td>2568-8</td>
+                <td>Debora</td>
+                <td>Manhã</td>
+              </tr>
+              <tr>
+                <td>Design</td>
+                <td>2524-7</td>
+                <td>Jordana</td>
+                <td>Manhã</td>
+              </tr>
+              <tr>
+                <td>Redes</td>
+                <td>2521-2</td>
+                <td>Maxiel</td>
+                <td>Noite</td>
+              </tr>
+              <tr>
+                <td>Lógica Prog.</td>
+                <td>2523-5</td>
+                <td>Denise</td>
+                <td>Manhã</td>
+              </tr>
+              <tr>
+                <td>Matemática Lógica</td>
+                <td>2586-1</td>
+                <td>Daniel</td>
+                <td>Noite</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
       <div id="btnModalNT" class="modal hide">
+        <span class="close" onclick="modalDisappear(modalNT)">x</span>
         <div class="content_modal">
-          <span class="close" onclick="modalDisappear(modalNT)">x</span>
-          <p>teste</p>
+          <table>
+            <thead>
+              <tr>
+                <td colspan="5">Aluno: <span>Renato Marciel Garcia</span></td>
+              </tr>
+              <tr>
+                <td>Disciplina</td>
+                <td>Nota-1</td>
+                <td>Nota-2</td>
+                <td>Média</td>
+                <td>Situação</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Gestão TI</td>
+                <td>9,6</td>
+                <td>8,4</td>
+                <td>9</td>
+                <td>Aprovado</td>
+              </tr>
+              <tr>
+                <td>Design</td>
+                <td>8,6</td>
+                <td>9,1</td>
+                <td>8,85</td>
+                <td>Aprovado</td>
+              </tr>
+              <tr>
+                <td>Redes</td>
+                <td>9</td>
+                <td>8,5</td>
+                <td>8,75</td>
+                <td>Aprovado</td>
+              </tr>
+              <tr>
+                <td>Lógica Prog.</td>
+                <td>10</td>
+                <td>8,9</td>
+                <td>9,45</td>
+                <td>Aprovado</td>
+              </tr>
+              <tr>
+                <td>Matemática Lógica</td>
+                <td>7,9</td>
+                <td>10</td>
+                <td>8,95</td>
+                <td>Aprovado</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
       <div id="btnModalCF" class="modal hide">
+        <span class="close" onclick="modalDisappear(modalCF)">x</span>
         <div class="content_modal">
-          <span class="close" onclick="modalDisappear(modalCF)">x</span>
           <p>teste</p>
         </div>
       </div>
@@ -98,13 +195,12 @@
       function modalAppear(event, modalName) {
         event.preventDefault()
         modalName.classList.remove('hide')
-        modalName.classList.add('appear')
+        console.log(modalName)
         console.log(event)
       }
 
       function modalDisappear(modalName) {
         modalName.classList.add('hide')
-        modalName.classList.remove('appear')
         console.log('span-onclick')
       }
     </script>

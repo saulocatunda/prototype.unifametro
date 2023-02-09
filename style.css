@@ -17,6 +17,8 @@
   --bg-dark-blue: #265153;
   --bg-modal: rgba(164, 209, 118, 0.506);
   --bg-buttonX: rgba(230, 36, 36, 0.774);
+  --bg-table-cl1: rgba(6, 94, 6, 0.301);
+  --bg-table-cl2: rgba(138, 228, 138, 0.322);
 }
 
 body {
@@ -34,7 +36,6 @@ header {
   opacity: 0;
   display: none;
 }
-
 
 img.logo.nav {
   width: 5rem;
@@ -70,8 +71,7 @@ main {
 
 /* Modal */
 main .modal {
-  display: none;
-  padding: 3rem;
+  padding: 1rem 3rem;
   border-radius: 1rem;
   z-index: 1;
   background-color: var(--bg-modal);
@@ -80,11 +80,61 @@ main .modal {
 }
 
 main .content_modal {
+  display: flex;
   font-weight: 400;
+  margin: 2rem 1rem;
 }
 
-main .appear {
-  display: grid;
+.appear {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  justify-content: space-evenly;
+}
+
+.labelInput {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 1rem 0 0 0;
+}
+
+table {
+  width: 50vw;
+  margin: 1rem;
+  text-align: center;
+}
+
+table thead tr:first-child {
+  background-color: var(--text-white);
+}
+table thead span {
+  font-weight: 500;
+}
+
+thead tr {
+  font-weight: bold;
+}
+
+table td:nth-child(2n) {
+  background-color: var(--bg-table-cl2);
+  border-radius: 0.3rem;
+}
+
+table td:nth-child(2n + 1) {
+  background-color: var(--bg-table-cl1);
+  border-radius: 0.3rem;
+}
+
+tbody tr:nth-child(2n + 1) {
+  background-color: var(--bg-table-cl1);
+}
+
+table tr:nth-child(2n),
+thead tr {
+  background-color: var(--bg-table-cl2);
 }
 
 .close {
