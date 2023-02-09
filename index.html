@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Poppins:wght@300;400;700&display=swap');
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="assets/apple-touch-icon-removebg-preview.png"
+      type="image/x-icon"
+    />
+    <title>Unifametro</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <img
+          src="assets/logo-responsivo.png"
+          alt="logo responsiva"
+          class="logo hide mobile"
+        />
+        <img
+          src="assets/apple-touch-icon-removebg-preview.png"
+          alt="logo favi"
+          class="logo nav"
+        />
+        <a href="/" id="btnCA" onclick="modalAppear()">Cadastrar aluno</a>
+        <a href="/" id="btnDP" onclick="modalAppear()">Disciplinas</a>
+        <a href="/" id="btnNT" onclick="modalAppear()">Notas</a>
+        <a href="/" id="btnCF" onclick="modalAppear()">Configurações</a>
+        <a href="">Sair</a>
+      </nav>
+    </header>
+    <main>
+      <div id="btnModalCA" class="modal">
+        <div class="content_modal">
+          <span class="close">x</span>
+          <p>teste</p>
+        </div>
+      </div>
+
+      <div id="btnModalDP" class="modal">
+        <div class="content_modal">
+          <span class="close">x</span>
+          <p>teste</p>
+        </div>
+      </div>
+
+      <div id="btnModalNT" class="modal">
+        <div class="content_modal">
+          <span class="close">x</span>
+          <p>teste</p>
+        </div>
+      </div>
+
+      <div id="btnModalCF" class="modal">
+        <div class="content_modal">
+          <span class="close">x</span>
+          <p>teste</p>
+        </div>
+      </div>
+    </main>
+    <script>
+      const modalCA = document.querySelector('#btnModalCA')
+      const modalDP = document.querySelector('#btnModalDP')
+      const modalNT = document.querySelector('#btnModalNT')
+      const modalCF = document.querySelector('#btnModalCF')
+      const buttonClose = document.querySelector('.close')
+
+      function modalAppear() {
+        event.preventDefault()
+        modalCA.style.display = 'grid'
+        console.log(event);
+      }
+
+      buttonClose.onclick = () => {
+        modalCA.style.display = 'none'
+        console.log('span-onclick');
+      }
+
+      window.onclick = event => {
+        if(event.target == modalCA) {
+          modalCA.style.display = "none"
+          console.log('span-onclick');
+        }
+      }
+    </script>
+  </body>
+</html>
