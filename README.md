@@ -1,3 +1,7 @@
+# Página simples com uma representação de um menu e tela de login
 
+## Features
 
-[Page](https://saulocatunda.github.io/prototype.unifametro/)
+> - Responsivo para Mobile e diferentes tamanhos de tela
+
+[Link da Página](https://saulocatunda.github.io/prototype.unifametro/)
